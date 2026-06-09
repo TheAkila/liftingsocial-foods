@@ -104,7 +104,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       <section className="section border-t border-border bg-surface">
         <div className="container-x">
           <h2 className="font-display text-4xl mb-8">YOU MIGHT ALSO LIKE</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}

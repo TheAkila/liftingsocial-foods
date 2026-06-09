@@ -45,12 +45,10 @@ export default async function Home() {
               <span>✓ Cold-Chain Delivery</span>
             </div>
           </div>
-          <div className="md:col-span-5 hidden md:block">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="md:col-span-5">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {featured.slice(0, 2).map((p) => (
-                <div key={p.slug} className="aspect-[3/4] bg-surface border border-border">
-                  <ProductCard product={p} />
-                </div>
+                <ProductCard key={p.slug} product={p} />
               ))}
             </div>
           </div>
@@ -79,7 +77,7 @@ export default async function Home() {
               View Full Menu →
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {featured.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}

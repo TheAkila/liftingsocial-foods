@@ -47,7 +47,7 @@ export default async function MenuPage({ searchParams }: { searchParams: Search 
           {products.length === 0 ? (
             <p className="text-muted text-center py-20">No meals in this category yet.</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {products.map((p) => (
                 <ProductCard key={p.slug} product={p} />
               ))}
