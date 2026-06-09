@@ -39,7 +39,7 @@ export function ProductImage({ name, category, image, className }: Props) {
         </div>
       </div>
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.15em] text-foreground/40">
-        <span>LS Foods</span>
+        <span>GymDine</span>
         <span>{category}</span>
       </div>
     </div>

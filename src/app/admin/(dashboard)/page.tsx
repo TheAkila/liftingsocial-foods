@@ -31,7 +31,7 @@ export default async function DashboardPage() {
       <header>
         <h1 className="font-display text-5xl md:text-6xl">DASHBOARD</h1>
         <p className="text-muted text-sm uppercase tracking-[0.15em] mt-2">
-          Lifting Social Foods · Today
+          GymDine · Today
         </p>
       </header>
 

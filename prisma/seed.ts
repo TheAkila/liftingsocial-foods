@@ -144,7 +144,7 @@ const seedProducts = [
 
 async function main() {
   // Seed admin user
-  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@theliftingsocial.com";
+  const adminEmail = process.env.SEED_ADMIN_EMAIL ?? "admin@gymdine.lk";
   const adminPassword = process.env.SEED_ADMIN_PASSWORD ?? "ChangeMe!2026";
   const adminName = process.env.SEED_ADMIN_NAME ?? "Founder";
 

@@ -17,14 +17,14 @@ const display = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lifting Social Foods — Eat Like You Train",
-    template: "%s | Lifting Social Foods",
+    default: "GymDine — Eat Like You Train",
+    template: "%s | GymDine",
   },
   description:
     "Chef-crafted, macro-tracked protein meals built for lifters. Delivered across Sri Lanka.",
-  metadataBase: new URL("https://foods.theliftingsocial.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://liftingsocial-foods.vercel.app"),
   openGraph: {
-    title: "Lifting Social Foods — Eat Like You Train",
+    title: "GymDine — Eat Like You Train",
     description:
       "Chef-crafted, macro-tracked protein meals built for lifters. Delivered across Sri Lanka.",
     type: "website",

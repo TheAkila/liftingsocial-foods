@@ -25,7 +25,7 @@ export async function uploadImage(buffer: Buffer, filename: string): Promise<str
   return await new Promise<string>((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        folder: "liftingsocial-foods/products",
+        folder: "gymdine/products",
         public_id: filename.replace(/\.[^.]+$/, ""),
         resource_type: "image",
         overwrite: false,

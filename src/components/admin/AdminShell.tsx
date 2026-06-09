@@ -35,7 +35,7 @@ export function AdminShell({
       {/* Mobile top bar */}
       <header className="md:hidden flex items-center justify-between border-b border-border px-4 h-14">
         <Link href="/admin" className="font-display text-lg">
-          LS<span className="text-accent">.</span>ADMIN
+          GYMDINE<span className="text-accent">.</span>ADMIN
         </Link>
         <button
           type="button"
@@ -65,7 +65,7 @@ export function AdminShell({
       >
         <div className="hidden md:block p-6 border-b border-border">
           <Link href="/admin" className="font-display text-2xl">
-            LS<span className="text-accent">.</span>ADMIN
+            GYMDINE<span className="text-accent">.</span>ADMIN
           </Link>
           <div className="text-[10px] uppercase tracking-[0.15em] text-muted mt-1">
             Operator Console

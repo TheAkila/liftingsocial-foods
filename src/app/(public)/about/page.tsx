@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About — Born From the Barbell",
-  description: "Lifting Social Foods is the kitchen arm of Lifting Social — built by lifters for lifters.",
+  description: "GymDine — built by lifters, for lifters.",
 };
 
 export default function AboutPage() {
@@ -16,10 +16,9 @@ export default function AboutPage() {
             BORN FROM THE<br /><span className="text-accent">BARBELL.</span>
           </h1>
           <p className="text-xl text-foreground/80 mt-8 max-w-2xl leading-relaxed">
-            Lifting Social Foods is the kitchen arm of the Lifting Social brand — Sri Lanka&apos;s
-            home for weightlifting culture. We started cooking because the lifters in our community
-            kept asking the same question: &ldquo;Where do I get clean food that actually hits my
-            macros?&rdquo;
+            GymDine is Sri Lanka&apos;s protein-meal kitchen for serious lifters. We started cooking
+            because every lifter we knew kept asking the same question: &ldquo;Where do I get clean
+            food that actually hits my macros?&rdquo;
           </p>
         </div>
       </section>
@@ -37,7 +36,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             <h2 className="font-display text-4xl">THE FIX</h2>
             <p className="text-foreground/80 leading-relaxed">
-              Every Lifting Social meal is built around a target protein number, cooked clean in a
+              Every GymDine meal is built around a target protein number, cooked clean in a
               commercial kitchen, labeled to the gram, and delivered cold. No guessing.
             </p>
           </div>

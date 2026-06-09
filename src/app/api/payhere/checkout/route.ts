@@ -66,7 +66,7 @@ export async function POST(req: Request) {
   const deliveryFee = DELIVERY_FEE;
   const total = subtotal + deliveryFee;
 
-  const orderRef = `LSF-${Date.now()}`;
+  const orderRef = `GD-${Date.now()}`;
   const order = await db.order.create({
     data: {
       orderRef,

@@ -16,7 +16,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
         <div className="text-center mb-8">
           <div className="inline-block w-2 h-2 bg-accent mb-4" />
           <h1 className="font-display text-4xl">ADMIN LOGIN</h1>
-          <p className="text-muted text-sm mt-2">Lifting Social Foods · Operator Console</p>
+          <p className="text-muted text-sm mt-2">GymDine · Operator Console</p>
         </div>
         <LoginForm nextPath={next} />
       </div>

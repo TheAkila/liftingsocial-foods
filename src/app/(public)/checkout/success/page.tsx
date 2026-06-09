@@ -16,7 +16,7 @@ export default async function SuccessPage({ searchParams }: { searchParams: Sear
         ORDER LOCKED IN.
       </h1>
       <p className="text-foreground/80 text-lg mb-2">
-        Thanks for fueling up with Lifting Social Foods.
+        Thanks for fueling up with GymDine.
       </p>
       {order && (
         <p className="text-sm text-muted mb-8">

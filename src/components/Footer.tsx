@@ -12,15 +12,7 @@ export function Footer() {
             across Sri Lanka.
           </p>
           <p className="text-xs uppercase tracking-[0.15em] text-muted">
-            Part of the Lifting Social family ·{" "}
-            <a
-              href="https://www.theliftingsocial.com"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-accent"
-            >
-              theliftingsocial.com
-            </a>
+            Made in Sri Lanka · Fuel for lifters
           </p>
         </div>
         <div>
@@ -71,7 +63,7 @@ export function Footer() {
       </div>
       <div className="hairline" />
       <div className="container-x py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-muted">
-        <span>© {new Date().getFullYear()} Lifting Social Foods. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} GymDine. All rights reserved.</span>
         <span className="uppercase tracking-[0.15em]">Built for Champions</span>
       </div>
     </footer>

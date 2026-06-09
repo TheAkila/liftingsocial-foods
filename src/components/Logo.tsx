@@ -12,8 +12,7 @@ export function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
       className={`font-display tracking-[0.04em] leading-none ${sizes[size]} inline-flex items-center gap-2`}
     >
       <span className="inline-block w-2 h-2 bg-accent" aria-hidden />
-      <span>LIFTING SOCIAL</span>
-      <span className="text-accent">FOODS</span>
+      <span>GYMDINE</span>
     </Link>
   );
 }

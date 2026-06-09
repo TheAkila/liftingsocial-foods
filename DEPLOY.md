@@ -1,4 +1,4 @@
-# Deploying Lifting Social Foods to Vercel
+# Deploying GymDine to Vercel
 
 This is a one-time setup. After it's done, every `git push` to `main` auto-deploys.
 
@@ -19,7 +19,7 @@ npx prisma db push
 npm run db:seed
 ```
 
-You should see `✓ Admin user ready: admin@theliftingsocial.com / ChangeMe!2026`.
+You should see `✓ Admin user ready: admin@gymdine.lk / ChangeMe!2026`.
 
 ## 3. Cloudinary (image hosting)
 
@@ -30,12 +30,12 @@ You should see `✓ Admin user ready: admin@theliftingsocial.com / ChangeMe!2026
 
 1. Go to https://console.cloud.google.com/
 2. Create a new project (or pick an existing one).
-3. **APIs & Services → OAuth consent screen** → choose **External** → fill in app name (`Lifting Social Foods`), user support email, developer email → Save.
+3. **APIs & Services → OAuth consent screen** → choose **External** → fill in app name (`GymDine`), user support email, developer email → Save.
    - On the **Scopes** step, leave defaults.
    - On the **Test users** step, add your own Gmail (and any team email). While in "Testing" status, only listed test users can sign in.
 4. **APIs & Services → Credentials → Create Credentials → OAuth client ID**
    - Application type: **Web application**
-   - Name: `Lifting Social Foods Web`
+   - Name: `GymDine Web`
    - **Authorized JavaScript origins**:
      - `http://localhost:3000`
      - `https://liftingsocial-foods.vercel.app` (replace with your Vercel URL)

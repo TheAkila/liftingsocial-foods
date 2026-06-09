@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Lifting Social Foods.",
+  description: "Get in touch with GymDine.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
             we&apos;re here.
           </p>
           <div className="mt-10 space-y-5 text-sm">
-            <ContactItem label="Email" value="hello@theliftingsocial.com" href="mailto:hello@theliftingsocial.com" />
+            <ContactItem label="Email" value="hello@gymdine.lk" href="mailto:hello@gymdine.lk" />
             <ContactItem label="WhatsApp" value="+94 77 000 0000" href="https://wa.me/94770000000" />
             <ContactItem label="Kitchen" value="Colombo 05, Sri Lanka" />
             <ContactItem label="Hours" value="Mon–Sat · 8am – 8pm" />

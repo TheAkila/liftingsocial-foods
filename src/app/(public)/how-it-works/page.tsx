@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "How It Works",
-  description: "From order to delivery — here's how Lifting Social Foods gets to your kitchen.",
+  description: "From order to delivery — here's how GymDine gets to your kitchen.",
 };
 
 const steps = [
