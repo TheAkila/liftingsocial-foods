@@ -36,7 +36,7 @@ export default async function MenuPage({ searchParams }: { searchParams: Search 
         </div>
       </section>
 
-      <section className="border-b border-border sticky top-16 z-30 bg-background/95 backdrop-blur">
+      <section className="border-b border-border sticky top-20 z-30 bg-background/95 backdrop-blur">
         <div className="container-x">
           <MenuFilter active={cat} />
         </div>
