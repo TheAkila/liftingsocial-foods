@@ -14,11 +14,8 @@ export function PromoBar() {
     <div className="bg-foreground text-background overflow-hidden">
       <div className="marquee-track flex whitespace-nowrap py-2.5 text-xs font-bold uppercase tracking-[0.18em]">
         {track.map((msg, i) => (
-          <span key={i} className="flex items-center shrink-0 px-6">
-            <span>{msg}</span>
-            <span className="ml-6 opacity-60" aria-hidden>
-              ◆
-            </span>
+          <span key={i} className="shrink-0 px-8">
+            {msg}
           </span>
         ))}
       </div>
