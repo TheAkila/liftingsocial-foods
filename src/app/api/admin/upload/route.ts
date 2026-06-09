@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "node:fs/promises";
-import path from "node:path";
 import crypto from "node:crypto";
 import { getSession } from "@/lib/auth";
+import { isCloudinaryConfigured, uploadImage } from "@/lib/cloudinary";
 
 const ALLOWED = new Set(["image/jpeg", "image/png", "image/webp", "image/avif"]);
 const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
@@ -10,6 +9,16 @@ const MAX_BYTES = 8 * 1024 * 1024; // 8 MB
 export async function POST(req: Request) {
   const session = await getSession();
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  if (!isCloudinaryConfigured()) {
+    return NextResponse.json(
+      {
+        error:
+          "Image upload is not configured. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.",
+      },
+      { status: 500 }
+    );
+  }
 
   const form = await req.formData();
   const file = form.get("file");
@@ -29,21 +38,14 @@ export async function POST(req: Request) {
     );
   }
 
-  const bytes = Buffer.from(await file.arrayBuffer());
-  const extFromType: Record<string, string> = {
-    "image/jpeg": "jpg",
-    "image/png": "png",
-    "image/webp": "webp",
-    "image/avif": "avif",
-  };
-  const ext = extFromType[file.type] ?? "bin";
+  const buffer = Buffer.from(await file.arrayBuffer());
   const id = crypto.randomBytes(12).toString("hex");
-  const filename = `${id}.${ext}`;
 
-  const uploadDir = path.join(process.cwd(), "public", "uploads");
-  await mkdir(uploadDir, { recursive: true });
-  await writeFile(path.join(uploadDir, filename), bytes);
-
-  const url = `/uploads/${filename}`;
-  return NextResponse.json({ url });
+  try {
+    const url = await uploadImage(buffer, id);
+    return NextResponse.json({ url });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Upload failed";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }

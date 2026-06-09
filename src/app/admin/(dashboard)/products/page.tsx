@@ -32,37 +32,39 @@ export default async function ProductsPage() {
       ) : (
         <div className="border border-border bg-surface divide-y divide-border">
           {products.map((p) => (
-            <div key={p.id} className="flex items-center gap-4 p-4">
-              <div className="w-16 h-16 shrink-0 bg-background border border-border overflow-hidden">
-                <ProductImage name={p.name} category={p.category} image={p.image} />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Link
-                    href={`/admin/products/${p.id}`}
-                    className="font-bold hover:text-accent truncate"
-                  >
-                    {p.name}
-                  </Link>
-                  {!p.published && (
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-muted border border-border px-1.5 py-0.5">
-                      draft
-                    </span>
-                  )}
-                  {p.badge && (
-                    <span className="text-[10px] uppercase tracking-[0.15em] text-accent border border-accent/40 px-1.5 py-0.5">
-                      {p.badge}
-                    </span>
-                  )}
+            <div key={p.id} className="flex flex-col sm:flex-row sm:items-center gap-4 p-4">
+              <div className="flex items-center gap-4 flex-1 min-w-0">
+                <div className="w-16 h-16 shrink-0 bg-background border border-border overflow-hidden">
+                  <ProductImage name={p.name} category={p.category} image={p.image} />
                 </div>
-                <div className="text-xs text-muted truncate mt-0.5">
-                  /{p.slug} · {p.category} · {p.protein}g protein · {p.calories} cal
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <Link
+                      href={`/admin/products/${p.id}`}
+                      className="font-bold hover:text-accent truncate"
+                    >
+                      {p.name}
+                    </Link>
+                    {!p.published && (
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-muted border border-border px-1.5 py-0.5">
+                        draft
+                      </span>
+                    )}
+                    {p.badge && (
+                      <span className="text-[10px] uppercase tracking-[0.15em] text-accent border border-accent/40 px-1.5 py-0.5">
+                        {p.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xs text-muted truncate mt-0.5">
+                    /{p.slug} · {p.category} · {p.protein}g protein · {p.calories} cal
+                  </div>
                 </div>
               </div>
-              <div className="text-right">
+              <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
                 <div className="font-display text-xl">{formatLKR(p.price)}</div>
+                <ProductRowActions id={p.id} slug={p.slug} published={p.published} name={p.name} />
               </div>
-              <ProductRowActions id={p.id} slug={p.slug} published={p.published} name={p.name} />
             </div>
           ))}
         </div>

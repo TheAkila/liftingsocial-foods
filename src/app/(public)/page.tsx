@@ -2,6 +2,10 @@ import Link from "next/link";
 import { getProducts } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
+// Render on-demand so the build doesn't require a reachable database.
+// On Vercel with DATABASE_URL set, each request hits the DB directly (fast on Neon's pooled connection).
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const all = await getProducts();
   const featured = all.slice(0, 4);
@@ -20,7 +24,7 @@ export default async function Home() {
         <div className="container-x relative py-24 md:py-36 grid md:grid-cols-12 gap-10 items-center">
           <div className="md:col-span-7 space-y-7">
             <span className="chip chip-accent">FUEL FOR CHAMPIONS</span>
-            <h1 className="font-display text-glow text-[clamp(3.5rem,9vw,8rem)] leading-[0.85]">
+            <h1 className="font-display text-glow text-[clamp(2.75rem,11vw,8rem)] leading-[0.85]">
               EAT LIKE<br />YOU <span className="text-accent">TRAIN.</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 max-w-xl">

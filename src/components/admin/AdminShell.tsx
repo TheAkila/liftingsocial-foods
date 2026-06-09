@@ -93,7 +93,7 @@ export function AdminShell({
             );
           })}
         </nav>
-        <div className="hidden md:block absolute bottom-0 left-0 right-0 md:relative p-4 border-t border-border md:mt-8">
+        <div className="p-4 border-t border-border md:mt-8">
           <div className="text-[10px] uppercase tracking-[0.15em] text-muted">Signed in as</div>
           <div className="text-sm font-bold truncate">{session.email}</div>
           <div className="text-[10px] uppercase tracking-[0.15em] text-muted mt-0.5">

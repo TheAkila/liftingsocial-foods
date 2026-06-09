@@ -113,7 +113,7 @@ export function CheckoutForm() {
       </div>
 
       <aside className="space-y-4">
-        <div className="border border-border bg-surface p-6 sticky top-24 space-y-4">
+        <div className="border border-border bg-surface p-6 lg:sticky lg:top-24 space-y-4">
           <h3 className="font-display text-2xl">ORDER SUMMARY</h3>
           <div className="space-y-3 max-h-64 overflow-y-auto">
             {mounted &&

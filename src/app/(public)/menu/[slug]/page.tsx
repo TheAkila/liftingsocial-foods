@@ -7,14 +7,23 @@ import { ProductCard } from "@/components/ProductCard";
 import { ProductImage } from "@/components/ProductImage";
 import { AddToCart } from "./AddToCart";
 
+// Render on-demand so builds don't require a reachable database.
+export const dynamic = "force-dynamic";
+
 type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
-  const rows = await db.product.findMany({
-    where: { published: true },
-    select: { slug: true },
-  });
-  return rows.map((p) => ({ slug: p.slug }));
+  try {
+    const rows = await db.product.findMany({
+      where: { published: true },
+      select: { slug: true },
+    });
+    return rows.map((p) => ({ slug: p.slug }));
+  } catch {
+    // DB not reachable at build time (e.g. CI without DATABASE_URL).
+    // Pages will be rendered on-demand instead of prerendered.
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
@@ -60,7 +69,7 @@ export default async function ProductPage({ params }: { params: Params }) {
 
           <p className="text-foreground/85 leading-relaxed">{product.description}</p>
 
-          <div className="grid grid-cols-4 gap-3 py-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-2">
             <Macro value={`${product.protein}g`} label="Protein" highlight />
             <Macro value={`${product.calories}`} label="Calories" />
             <Macro value={`${product.carbs}g`} label="Carbs" />
