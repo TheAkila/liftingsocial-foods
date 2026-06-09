@@ -27,7 +27,7 @@ export default async function Home() {
             <h1 className="font-display text-glow text-[clamp(2.75rem,11vw,8rem)] leading-[0.85]">
               EAT LIKE<br />YOU <span className="text-accent">TRAIN.</span>
             </h1>
-            <p className="text-lg md:text-xl text-foreground/80 max-w-xl">
+            <p className="text-sm md:text-xl text-foreground/80 max-w-xl leading-relaxed">
               Chef-crafted, ready-to-eat protein meals. Macro-tracked to the gram. Delivered
               across Sri Lanka — so you spend less time meal-prepping and more time under the bar.
             </p>
@@ -95,11 +95,10 @@ export default async function Home() {
               FOR <span className="text-accent">PERFORMANCE.</span>
             </h2>
           </div>
-          <div className="md:col-span-7 space-y-6 text-foreground/85 text-lg leading-relaxed">
+          <div className="md:col-span-7 space-y-5 md:space-y-6 text-foreground/85 text-sm md:text-lg leading-relaxed">
             <p>
-              You don&apos;t skip sets. So why settle for meals that skip on protein? Every Lifting
-              Social meal is built around one rule: deliver real, whole-food macros that fuel real
-              lifting.
+              You don&apos;t skip sets. So why settle for meals that skip on protein? Every GymDine
+              meal is built around one rule: deliver real, whole-food macros that fuel real lifting.
             </p>
             <p>
               No mystery sauces. No filler grains. Just chicken, fish, lean beef, rice, and

@@ -15,7 +15,7 @@ export default function AboutPage() {
           <h1 className="font-display text-6xl md:text-8xl leading-[0.85]">
             BORN FROM THE<br /><span className="text-accent">BARBELL.</span>
           </h1>
-          <p className="text-xl text-foreground/80 mt-8 max-w-2xl leading-relaxed">
+          <p className="text-sm md:text-xl text-foreground/80 mt-8 max-w-2xl leading-relaxed">
             GymDine is Sri Lanka&apos;s protein-meal kitchen for serious lifters. We started cooking
             because every lifter we knew kept asking the same question: &ldquo;Where do I get clean
             food that actually hits my macros?&rdquo;

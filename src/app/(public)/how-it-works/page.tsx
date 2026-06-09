@@ -44,7 +44,7 @@ export default function HowItWorksPage() {
             FROM <span className="text-accent">KITCHEN</span><br />
             TO BARBELL.
           </h1>
-          <p className="text-xl text-foreground/80 mt-8 max-w-2xl">
+          <p className="text-sm md:text-xl text-foreground/80 mt-8 max-w-2xl leading-relaxed">
             Five steps from order to gains.
           </p>
         </div>

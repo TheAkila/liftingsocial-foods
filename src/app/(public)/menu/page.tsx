@@ -29,7 +29,7 @@ export default async function MenuPage({ searchParams }: { searchParams: Search 
             BUILT FOR<br />
             <span className="text-accent">THE LIFT.</span>
           </h1>
-          <p className="text-foreground/80 max-w-2xl text-lg">
+          <p className="text-foreground/80 max-w-2xl text-sm md:text-lg leading-relaxed">
             Every meal is chef-cooked, macro-tracked, and packed to keep its protein count honest.
             Pick what fuels your week.
           </p>

@@ -15,7 +15,7 @@ export default async function SuccessPage({ searchParams }: { searchParams: Sear
       <h1 className="font-display text-5xl md:text-6xl leading-[0.9] mb-4">
         ORDER LOCKED IN.
       </h1>
-      <p className="text-foreground/80 text-lg mb-2">
+      <p className="text-foreground/80 text-sm md:text-lg mb-2">
         Thanks for fueling up with GymDine.
       </p>
       {order && (

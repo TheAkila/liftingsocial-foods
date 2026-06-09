@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           <h1 className="font-display text-5xl md:text-6xl leading-[0.9]">
             {product.name.toUpperCase()}
           </h1>
-          <p className="text-xl text-foreground/80">{product.tagline}</p>
+          <p className="text-base md:text-xl text-foreground/80">{product.tagline}</p>
           <div className="font-display text-4xl text-accent">{formatLKR(product.price)}</div>
 
           <div className="hairline" />
