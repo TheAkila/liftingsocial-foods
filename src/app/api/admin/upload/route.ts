@@ -45,7 +45,13 @@ export async function POST(req: Request) {
     const url = await uploadImage(buffer, id);
     return NextResponse.json({ url });
   } catch (err) {
-    const message = err instanceof Error ? err.message : "Upload failed";
+    console.error("[upload] Cloudinary error:", err);
+    const message =
+      err instanceof Error
+        ? err.message
+        : typeof err === "object" && err && "message" in err
+          ? String((err as { message: unknown }).message)
+          : "Upload failed";
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
