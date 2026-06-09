@@ -1,9 +1,7 @@
 const messages = [
   "GymDine",
   "Eat Like You Train",
-  "Macro-Tracked Protein Meals",
-  "Ready Meals Across Sri Lanka",
-  "30g+ Protein Per Meal",
+  "Macro Tracked Protein Meals",
   "Fuel for Champions",
 ];
 

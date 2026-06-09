@@ -16,7 +16,7 @@ export default function AboutPage() {
             BORN FROM THE<br /><span className="text-accent">BARBELL.</span>
           </h1>
           <p className="text-sm md:text-xl text-foreground/80 mt-8 max-w-2xl leading-relaxed">
-            GymDine is Sri Lanka&apos;s protein-meal kitchen for serious lifters. We started cooking
+            GymDine is Sri Lanka&apos;s protein meal kitchen for serious lifters. We started cooking
             because every lifter we knew kept asking the same question: &ldquo;Where do I get clean
             food that actually hits my macros?&rdquo;
           </p>
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <h2 className="font-display text-4xl">THE PROBLEM</h2>
             <p className="text-foreground/80 leading-relaxed">
               Most &ldquo;healthy&rdquo; meal services skim on protein, hide oil, and dress up rice
-              as a power bowl. Lifters need transparent macros and real portions — not Instagram
+              as a power bowl. Lifters need transparent macros and real portions not Instagram
               food.
             </p>
           </div>
