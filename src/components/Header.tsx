@@ -25,8 +25,8 @@ export function Header({ user }: { user: HeaderUser }) {
   return (
     <>
       <header className="sticky top-0 z-40 bg-background/85 backdrop-blur border-b border-border">
-        <div className="container-x flex items-center justify-between h-16">
-          <Logo />
+        <div className="container-x flex items-center justify-between h-20">
+          <Logo size="lg" />
           <nav className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-[0.1em]">
             {nav.map((item) => (
               <Link

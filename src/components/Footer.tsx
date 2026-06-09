@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-border bg-background">
       <div className="container-x py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2 space-y-4">
-          <Logo size="md" />
+          <Logo size="lg" />
           <p className="text-muted max-w-sm">
             Chef-crafted protein meals built for lifters. Macro-tracked, no fillers, delivered cold
             across Sri Lanka.
