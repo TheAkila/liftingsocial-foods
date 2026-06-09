@@ -5,7 +5,7 @@ import { formatLKR } from "@/lib/products";
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [productCount, publishedCount, orderStats, recentOrders] = await Promise.all([
+  const [productCount, publishedCount, orderStats, recentOrders, customerCount] = await Promise.all([
     db.product.count(),
     db.product.count({ where: { published: true } }),
     db.order.groupBy({
@@ -17,6 +17,7 @@ export default async function DashboardPage() {
       orderBy: { createdAt: "desc" },
       take: 5,
     }),
+    db.user.count({ where: { role: "customer" } }),
   ]);
 
   const totalOrders = orderStats.reduce((s, g) => s + g._count._all, 0);
@@ -34,10 +35,11 @@ export default async function DashboardPage() {
         </p>
       </header>
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <Stat label="Total Revenue" value={formatLKR(paidRevenue)} accent />
         <Stat label="Orders" value={String(totalOrders)} />
         <Stat label="Pending" value={String(pendingCount)} />
+        <Stat label="Customers" value={String(customerCount)} />
         <Stat
           label="Products"
           value={`${publishedCount}/${productCount}`}

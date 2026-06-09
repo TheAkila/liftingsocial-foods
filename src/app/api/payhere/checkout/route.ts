@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { auth } from "@/auth";
 import { buildCheckoutHash, PAYHERE_CHECKOUT_URL } from "@/lib/payhere";
 
 type CartLineIn = {
@@ -25,6 +26,11 @@ type Body = {
 const DELIVERY_FEE = 350;
 
 export async function POST(req: Request) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Sign in to place an order." }, { status: 401 });
+  }
+
   let body: Body;
   try {
     body = (await req.json()) as Body;
@@ -64,6 +70,7 @@ export async function POST(req: Request) {
   const order = await db.order.create({
     data: {
       orderRef,
+      userId: session.user.id,
       customerName: `${body.customer.firstName} ${body.customer.lastName}`.trim(),
       customerEmail: body.customer.email,
       customerPhone: body.customer.phone,
@@ -77,6 +84,14 @@ export async function POST(req: Request) {
       items: { create: itemsToCreate },
     },
   });
+
+  // Save phone to customer profile if not yet set (for next-time prefill).
+  if (body.customer.phone) {
+    await db.user.update({
+      where: { id: session.user.id },
+      data: { phone: body.customer.phone },
+    });
+  }
 
   const merchantId = process.env.PAYHERE_MERCHANT_ID;
   const merchantSecret = process.env.PAYHERE_MERCHANT_SECRET;

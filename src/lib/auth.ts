@@ -76,7 +76,13 @@ export async function login(
   password: string
 ): Promise<{ ok: true; token: string; user: SessionPayload } | { ok: false; error: string }> {
   const user = await db.user.findUnique({ where: { email: email.toLowerCase().trim() } });
-  if (!user) return { ok: false, error: "Invalid email or password." };
+  if (!user || !user.passwordHash) {
+    // No user, or this is a customer account (Google sign-in only, no password).
+    return { ok: false, error: "Invalid email or password." };
+  }
+  if (user.role !== "admin" && user.role !== "staff") {
+    return { ok: false, error: "Invalid email or password." };
+  }
 
   const valid = await bcrypt.compare(password, user.passwordHash);
   if (!valid) return { ok: false, error: "Invalid email or password." };

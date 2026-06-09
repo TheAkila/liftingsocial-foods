@@ -7,7 +7,12 @@ import { formatLKR } from "@/lib/products";
 
 const DELIVERY_FEE = 350;
 
-export function CheckoutForm() {
+type Props = {
+  defaultName?: string;
+  defaultEmail?: string;
+};
+
+export function CheckoutForm({ defaultName = "", defaultEmail = "" }: Props) {
   const lines = useCart((s) => s.lines);
   const clear = useCart((s) => s.clear);
   const [mounted, setMounted] = useState(false);
@@ -88,10 +93,20 @@ export function CheckoutForm() {
       <div className="space-y-8">
         <Section title="DELIVERY DETAILS">
           <div className="grid sm:grid-cols-2 gap-4">
-            <Field name="firstName" label="First Name" required />
-            <Field name="lastName" label="Last Name" required />
+            <Field
+              name="firstName"
+              label="First Name"
+              required
+              defaultValue={defaultName.split(" ")[0] ?? ""}
+            />
+            <Field
+              name="lastName"
+              label="Last Name"
+              required
+              defaultValue={defaultName.split(" ").slice(1).join(" ")}
+            />
           </div>
-          <Field name="email" label="Email" type="email" required />
+          <Field name="email" label="Email" type="email" required defaultValue={defaultEmail} />
           <Field name="phone" label="Phone" type="tel" required placeholder="+94 77 000 0000" />
           <Field name="address" label="Street Address" required />
           <div className="grid sm:grid-cols-2 gap-4">

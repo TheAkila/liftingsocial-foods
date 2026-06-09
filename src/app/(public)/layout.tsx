@@ -1,10 +1,19 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { auth } from "@/auth";
 
-export default function PublicLayout({ children }: { children: React.ReactNode }) {
+export default async function PublicLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+  const headerUser = session?.user
+    ? {
+        name: session.user.name ?? null,
+        email: session.user.email ?? null,
+        image: session.user.image ?? null,
+      }
+    : null;
   return (
     <>
-      <Header />
+      <Header user={headerUser} />
       <main className="flex-1">{children}</main>
       <Footer />
     </>
