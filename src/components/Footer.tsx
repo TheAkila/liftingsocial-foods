@@ -8,8 +8,8 @@ export function Footer() {
         <div className="md:col-span-2 space-y-4">
           <Logo size="lg" />
           <p className="text-muted max-w-sm">
-            Chef-crafted protein meals built for lifters. Macro-tracked, no fillers, delivered cold
-            across Sri Lanka.
+            Chef-crafted, ready-to-eat protein meals built for lifters. Macro-tracked, no
+            fillers, delivered across Sri Lanka.
           </p>
           <p className="text-xs uppercase tracking-[0.15em] text-muted">
             Made in Sri Lanka · Fuel for lifters

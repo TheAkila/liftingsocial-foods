@@ -37,7 +37,7 @@ export default function AboutPage() {
             <h2 className="font-display text-4xl">THE FIX</h2>
             <p className="text-foreground/80 leading-relaxed">
               Every GymDine meal is built around a target protein number, cooked clean in a
-              commercial kitchen, labeled to the gram, and delivered cold. No guessing.
+              commercial kitchen, labeled to the gram, and delivered ready to eat. No guessing.
             </p>
           </div>
         </div>

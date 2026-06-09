@@ -24,8 +24,8 @@ const steps = [
   },
   {
     n: "04",
-    title: "COLD-CHAIN TO YOUR DOOR",
-    body: "Meals arrive sealed and chilled in insulated packaging. Eat within 48 hours.",
+    title: "DELIVERED TO YOUR DOOR",
+    body: "Meals arrive sealed and ready to eat. Enjoy fresh, or refrigerate and reheat within 24 hours.",
   },
   {
     n: "05",

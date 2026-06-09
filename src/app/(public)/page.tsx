@@ -28,8 +28,8 @@ export default async function Home() {
               EAT LIKE<br />YOU <span className="text-accent">TRAIN.</span>
             </h1>
             <p className="text-lg md:text-xl text-foreground/80 max-w-xl">
-              Chef-crafted protein meals. Macro-tracked to the gram. Delivered cold across Sri Lanka
-              — so you spend less time meal-prepping and more time under the bar.
+              Chef-crafted, ready-to-eat protein meals. Macro-tracked to the gram. Delivered
+              across Sri Lanka — so you spend less time meal-prepping and more time under the bar.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/menu" className="btn-primary text-sm">
@@ -42,7 +42,7 @@ export default async function Home() {
             <div className="flex flex-wrap gap-6 pt-4 text-xs uppercase tracking-[0.15em] text-muted">
               <span>✓ 30g+ Protein</span>
               <span>✓ Zero Fillers</span>
-              <span>✓ Cold-Chain Delivery</span>
+              <span>✓ Ready to Eat</span>
             </div>
           </div>
           <div className="md:col-span-5">
@@ -108,7 +108,7 @@ export default async function Home() {
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               <Pillar n="01" title="Macro-Tracked" body="Every meal carries protein, carb, and fat counts on the label." />
               <Pillar n="02" title="Chef-Crafted" body="Built in a commercial kitchen by chefs who lift." />
-              <Pillar n="03" title="Cold-Delivered" body="Cold-chain to your door across Colombo, Kandy & Galle." />
+              <Pillar n="03" title="Heat & Eat" body="Pre-cooked, sealed, and ready to eat. Just heat and dig in." />
             </div>
           </div>
         </div>

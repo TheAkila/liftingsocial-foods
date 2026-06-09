@@ -95,8 +95,8 @@ export default async function ProductPage({ params }: { params: Params }) {
             <strong className="text-foreground uppercase tracking-[0.15em] text-xs block mb-1">
               Storage
             </strong>
-            Keep refrigerated. Best within 48 hours of delivery. Microwave 2 minutes or oven 8
-            minutes at 180°C.
+            Delivered ready to eat. Refrigerate if not eating immediately and reheat within 24
+            hours — microwave 2 minutes or oven 8 minutes at 180°C.
           </div>
         </div>
       </section>
