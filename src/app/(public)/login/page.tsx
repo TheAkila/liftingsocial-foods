@@ -21,17 +21,13 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
   }
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-6 py-16">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-10">
-          <h1 className="font-display text-5xl md:text-6xl">SIGN IN</h1>
-          <p className="text-muted text-sm mt-3">
-            Lifting Social Foods — track orders, save delivery info.
-          </p>
-        </div>
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-16 bg-surface">
+      <div className="w-full max-w-md bg-background shadow-[0_1px_3px_rgba(0,0,0,0.06)] border border-border/60 px-10 sm:px-12 py-14 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">Lifting Social</h1>
+        <p className="text-sm text-muted mb-10">Sign in to your account</p>
 
         {error && (
-          <div className="mb-4 text-sm text-foreground border border-foreground/40 bg-foreground/5 px-3 py-2">
+          <div className="mb-6 text-sm text-foreground border border-foreground/40 bg-foreground/5 px-3 py-2 text-left">
             Sign-in failed. Try again, or use a different Google account.
           </div>
         )}
@@ -39,17 +35,12 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
         <form action={googleSignIn}>
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-3 bg-foreground text-background font-bold uppercase tracking-[0.04em] py-4 px-5 hover:opacity-90 transition-opacity"
+            className="w-full inline-flex items-center justify-center gap-3 border border-border bg-background hover:bg-surface transition-colors py-3.5 px-5 text-sm font-medium text-foreground"
           >
             <GoogleLogo />
-            Continue with Google
+            Sign in with Google
           </button>
         </form>
-
-        <p className="text-xs text-muted text-center mt-6 leading-relaxed">
-          By signing in you agree we&apos;ll use your email to send order confirmations and delivery
-          updates. Nothing else, ever.
-        </p>
       </div>
     </div>
   );

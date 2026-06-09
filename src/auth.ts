@@ -57,6 +57,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         session.user.id = token.userId as string;
         // @ts-expect-error - augmenting session.user type
         session.user.role = token.role as string;
+        // Make sure Google profile picture (and any updates) flow through to the client.
+        session.user.image = (token.picture as string | null | undefined) ?? session.user.image;
+        session.user.name = (token.name as string | null | undefined) ?? session.user.name;
+        session.user.email = (token.email as string | null | undefined) ?? session.user.email;
       }
       return session;
     },
