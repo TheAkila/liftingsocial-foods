@@ -140,3 +140,26 @@ body {
     font-size: 16px !important;
   }
 }
+
+/* Infinite-scroll marquee for the promo bar. Track contains the message
+   list twice; we translate -50% so when the second copy reaches the
+   start, the first copy is back in position — seamless loop. */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
