@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PromoBar } from "@/components/PromoBar";
+import { ShopClosedBanner } from "@/components/ShopClosedBanner";
 import { auth } from "@/auth";
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -14,6 +15,7 @@ export default async function PublicLayout({ children }: { children: React.React
     : null;
   return (
     <>
+      <ShopClosedBanner />
       <PromoBar />
       <Header user={headerUser} />
       <main className="flex-1">{children}</main>

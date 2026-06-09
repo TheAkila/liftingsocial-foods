@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { auth } from "@/auth";
+import { getShopStatus } from "@/lib/site-config";
 import { buildCheckoutHash, PAYHERE_CHECKOUT_URL } from "@/lib/payhere";
 
 type CartLineIn = {
@@ -29,6 +30,14 @@ export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Sign in to place an order." }, { status: 401 });
+  }
+
+  const shop = await getShopStatus();
+  if (!shop.isOpen) {
+    return NextResponse.json(
+      { error: shop.closedMessage || "Shop is currently closed." },
+      { status: 403 }
+    );
   }
 
   let body: Body;

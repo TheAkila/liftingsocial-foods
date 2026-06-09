@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { getProducts, getProduct, formatLKR } from "@/lib/products";
+import { getShopStatus } from "@/lib/site-config";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductImage } from "@/components/ProductImage";
 import { AddToCart } from "./AddToCart";
@@ -41,7 +42,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   const product = await getProduct(slug);
   if (!product || !product.published) notFound();
 
-  const all = await getProducts();
+  const [all, shop] = await Promise.all([getProducts(), getShopStatus()]);
   const related = all.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   return (
@@ -78,7 +79,7 @@ export default async function ProductPage({ params }: { params: Params }) {
 
           <div className="hairline" />
 
-          <AddToCart product={product} />
+          <AddToCart product={product} shopOpen={shop.isOpen} />
 
           <div>
             <h3 className="font-display text-xl mb-3">INGREDIENTS</h3>

@@ -12,6 +12,7 @@ const nav = [
   { href: "/admin/orders", label: "Orders", icon: "▥" },
   { href: "/admin/customers", label: "Customers", icon: "◯" },
   { href: "/admin/users", label: "Team", icon: "◉" },
+  { href: "/admin/settings", label: "Settings", icon: "⚙" },
 ];
 
 export function AdminShell({

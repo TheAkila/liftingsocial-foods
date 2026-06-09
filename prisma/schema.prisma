@@ -122,3 +122,11 @@ model OrderItem {
 
   @@index([orderId])
 }
+
+// Key-value store for site-wide configuration (shop open/closed, etc).
+model SiteConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}

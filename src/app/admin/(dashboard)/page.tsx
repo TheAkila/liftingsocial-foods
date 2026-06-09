@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { formatLKR } from "@/lib/products";
+import { getShopStatus } from "@/lib/site-config";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [productCount, publishedCount, orderStats, recentOrders, customerCount] = await Promise.all([
+  const [productCount, publishedCount, orderStats, recentOrders, customerCount, shop] = await Promise.all([
     db.product.count(),
     db.product.count({ where: { published: true } }),
     db.order.groupBy({
@@ -18,6 +19,7 @@ export default async function DashboardPage() {
       take: 5,
     }),
     db.user.count({ where: { role: "customer" } }),
+    getShopStatus(),
   ]);
 
   const totalOrders = orderStats.reduce((s, g) => s + g._count._all, 0);
@@ -28,11 +30,24 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-10">
-      <header>
-        <h1 className="font-display text-5xl md:text-6xl">DASHBOARD</h1>
-        <p className="text-muted text-sm uppercase tracking-[0.15em] mt-2">
-          GymDine · Today
-        </p>
+      <header className="flex items-start justify-between flex-wrap gap-4">
+        <div>
+          <h1 className="font-display text-5xl md:text-6xl">DASHBOARD</h1>
+          <p className="text-muted text-sm uppercase tracking-[0.15em] mt-2">
+            GymDine · Today
+          </p>
+        </div>
+        <Link
+          href="/admin/settings"
+          className={`px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] border ${
+            shop.isOpen
+              ? "bg-foreground text-background border-foreground"
+              : "text-accent border-accent"
+          }`}
+          title="Manage shop status in Settings"
+        >
+          Shop {shop.isOpen ? "Open" : "Closed"}
+        </Link>
       </header>
 
       <section className="grid grid-cols-2 md:grid-cols-5 gap-4">
