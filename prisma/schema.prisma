@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  role         String   @default("admin") // "admin" | "staff"
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Product {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  name         String
+  tagline      String
+  description  String
+  price        Int      // stored in LKR (whole rupees, no cents)
+  protein      Int
+  calories     Int
+  carbs        Int
+  fats         Int
+  category     String   // "dinner" | "lunch" | "breakfast" | "snack"
+  image        String?  // path under /public e.g. /uploads/xxx.jpg, or null for placeholder
+  badge        String?
+  ingredients  String   // comma-separated
+  published    Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderRef        String      @unique // human-friendly e.g. LSF-1234567890
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  address         String
+  city            String
+  notes           String?
+  subtotal        Int
+  deliveryFee     Int
+  total           Int
+  status          String      @default("pending") // pending | paid | failed | cancelled | chargedback
+  paymentMethod   String      @default("payhere")
+  payhereStatus   String?     // raw PayHere status_code
+  payherePaymentId String?
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model OrderItem {
+  id          String  @id @default(cuid())
+  order       Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId     String
+  productSlug String
+  productName String
+  price       Int
+  quantity    Int
+
+  @@index([orderId])
+}
