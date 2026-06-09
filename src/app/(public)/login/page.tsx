@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { auth, signIn } from "@/auth";
+import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -23,7 +24,10 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-16 bg-surface">
       <div className="w-full max-w-md bg-background shadow-[0_1px_3px_rgba(0,0,0,0.06)] border border-border/60 px-8 sm:px-10 py-10 text-center">
-        <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-2">GymDine</h1>
+        <div className="flex justify-center mb-3">
+          <Logo size="lg" asLink={false} />
+        </div>
+        <h1 className="sr-only">GymDine</h1>
         <p className="text-sm text-muted mb-8">Sign in to your account</p>
 
         {error && (

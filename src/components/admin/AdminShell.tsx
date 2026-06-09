@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SessionPayload } from "@/lib/auth";
+import { Logo } from "@/components/Logo";
 
 const nav = [
   { href: "/admin", label: "Dashboard", icon: "▣" },
@@ -34,8 +35,11 @@ export function AdminShell({
     <div className="min-h-screen flex flex-col md:flex-row bg-background">
       {/* Mobile top bar */}
       <header className="md:hidden flex items-center justify-between border-b border-border px-4 h-14">
-        <Link href="/admin" className="font-display text-lg">
-          GYMDINE<span className="text-accent">.</span>ADMIN
+        <Link href="/admin" className="inline-flex items-center gap-2">
+          <Logo size="sm" asLink={false} />
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted">
+            Admin
+          </span>
         </Link>
         <button
           type="button"
@@ -64,12 +68,12 @@ export function AdminShell({
         } md:block w-full md:w-60 md:min-h-screen border-r border-border bg-surface md:sticky md:top-0 md:self-start`}
       >
         <div className="hidden md:block p-6 border-b border-border">
-          <Link href="/admin" className="font-display text-2xl">
-            GYMDINE<span className="text-accent">.</span>ADMIN
+          <Link href="/admin" className="inline-flex flex-col items-start gap-1">
+            <Logo size="md" asLink={false} />
+            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted">
+              Admin · Operator Console
+            </span>
           </Link>
-          <div className="text-[10px] uppercase tracking-[0.15em] text-muted mt-1">
-            Operator Console
-          </div>
         </div>
         <nav className="p-3 md:p-4 space-y-1">
           {nav.map((item) => {

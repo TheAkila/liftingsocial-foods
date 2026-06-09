@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LoginForm } from "./LoginForm";
+import { Logo } from "@/components/Logo";
 
 export const metadata: Metadata = {
   title: "Admin Login",
@@ -14,7 +15,9 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
     <div className="min-h-[80vh] flex items-center justify-center px-6 py-16">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-block w-2 h-2 bg-accent mb-4" />
+          <div className="flex justify-center mb-4">
+            <Logo size="md" asLink={false} />
+          </div>
           <h1 className="font-display text-4xl">ADMIN LOGIN</h1>
           <p className="text-muted text-sm mt-2">GymDine · Operator Console</p>
         </div>
