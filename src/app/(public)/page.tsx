@@ -14,7 +14,7 @@ export default async function Home() {
           className="absolute inset-0 opacity-30"
           style={{
             background:
-              "radial-gradient(60% 80% at 80% 20%, rgba(255,74,28,0.35) 0%, transparent 60%), radial-gradient(50% 70% at 10% 90%, rgba(196,255,0,0.12) 0%, transparent 60%)",
+              "radial-gradient(60% 80% at 80% 20%, rgba(10,10,10,0.05) 0%, transparent 60%), radial-gradient(50% 70% at 10% 90%, rgba(10,10,10,0.03) 0%, transparent 60%)",
           }}
         />
         <div className="container-x relative py-24 md:py-36 grid md:grid-cols-12 gap-10 items-center">
@@ -120,7 +120,7 @@ export default async function Home() {
               className="absolute inset-0 opacity-40"
               style={{
                 background:
-                  "radial-gradient(50% 80% at 50% 50%, rgba(255,74,28,0.3) 0%, transparent 70%)",
+                  "radial-gradient(50% 80% at 50% 50%, rgba(10,10,10,0.05) 0%, transparent 70%)",
               }}
             />
             <div className="relative space-y-6">

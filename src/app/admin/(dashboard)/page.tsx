@@ -123,11 +123,11 @@ function Stat({
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, string> = {
-    paid: "text-success border-success/40",
-    pending: "text-muted border-border",
-    failed: "text-accent border-accent/40",
-    cancelled: "text-muted border-border",
-    chargedback: "text-accent border-accent/40",
+    paid: "bg-foreground text-background border-foreground",
+    pending: "text-foreground border-foreground",
+    failed: "text-muted border-muted line-through",
+    cancelled: "text-muted border-muted line-through",
+    chargedback: "text-muted border-muted line-through",
   };
   return (
     <span
