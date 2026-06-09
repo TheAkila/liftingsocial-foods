@@ -22,9 +22,9 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-16 bg-surface">
-      <div className="w-full max-w-xl bg-background shadow-[0_1px_3px_rgba(0,0,0,0.06)] border border-border/60 px-8 sm:px-14 py-14 text-center">
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-3">Lifting Social</h1>
-        <p className="text-base text-muted mb-10">Sign in to your account</p>
+      <div className="w-full max-w-md bg-background shadow-[0_1px_3px_rgba(0,0,0,0.06)] border border-border/60 px-8 sm:px-10 py-10 text-center">
+        <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-2">Lifting Social</h1>
+        <p className="text-sm text-muted mb-8">Sign in to your account</p>
 
         {error && (
           <div className="mb-6 text-sm text-foreground border border-foreground/40 bg-foreground/5 px-3 py-2 text-left">
@@ -35,7 +35,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
         <form action={googleSignIn}>
           <button
             type="submit"
-            className="w-full inline-flex items-center justify-center gap-3 border border-border bg-background hover:bg-surface transition-colors py-3.5 px-5 text-base font-medium text-foreground"
+            className="w-full inline-flex items-center justify-center gap-3 border border-border bg-background hover:bg-surface transition-colors py-3 px-4 text-sm font-medium text-foreground"
           >
             <GoogleLogo />
             <span>Sign in with Google</span>
@@ -48,7 +48,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
 
 function GoogleLogo() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden className="shrink-0">
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden className="shrink-0">
       <path
         fill="#4285F4"
         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
