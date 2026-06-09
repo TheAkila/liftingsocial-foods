@@ -21,7 +21,7 @@ export default async function Home() {
               "radial-gradient(60% 80% at 80% 20%, rgba(10,10,10,0.05) 0%, transparent 60%), radial-gradient(50% 70% at 10% 90%, rgba(10,10,10,0.03) 0%, transparent 60%)",
           }}
         />
-        <div className="container-x relative py-24 md:py-36 grid md:grid-cols-12 gap-10 items-center">
+        <div className="container-x relative pt-8 pb-12 md:py-36 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
           <div className="md:col-span-7 space-y-7">
             <span className="chip chip-accent">FUEL FOR CHAMPIONS</span>
             <h1 className="font-display text-glow text-[clamp(2.75rem,11vw,8rem)] leading-[0.85]">
