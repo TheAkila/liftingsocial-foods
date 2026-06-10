@@ -27,6 +27,7 @@ const jsonLd = {
       founder: [
         { "@id": `${SITE}/about#akila-nishan` },
         { "@id": `${SITE}/about#kasun-sanjana` },
+        { "@id": `${SITE}/about#purnima-ariyarathna` },
       ],
       areaServed: { "@type": "Country", name: "Sri Lanka" },
     },
@@ -68,6 +69,20 @@ const jsonLd = {
         "https://www.instagram.com/kasun_sanjana2/",
       ],
     },
+    {
+      "@type": "Person",
+      "@id": `${SITE}/about#purnima-ariyarathna`,
+      name: "Purnima Ariyarathna",
+      givenName: "Purnima",
+      familyName: "Ariyarathna",
+      jobTitle: "Co-founder",
+      worksFor: { "@id": `${SITE}/#organization` },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "University of Colombo" },
+      nationality: { "@type": "Country", name: "Sri Lanka" },
+      image: `${SITE}/founder-purnima.jpg`,
+      description:
+        "BBA (Hons) in International Business from the University of Colombo and a weightlifter. Brings the commercial backbone to GymDine, making sure a kitchen built for lifters runs like the business it is.",
+    },
   ],
 };
 
@@ -91,8 +106,9 @@ export default function AboutPage() {
           </p>
           <p className="text-sm md:text-base text-foreground/70 mt-4 max-w-2xl leading-relaxed">
             Founded by{" "}
-            <span className="text-foreground font-semibold">Akila Nishan</span> and{" "}
-            <span className="text-foreground font-semibold">Kasun Sanjana</span>, two young
+            <span className="text-foreground font-semibold">Akila Nishan</span>,{" "}
+            <span className="text-foreground font-semibold">Kasun Sanjana</span>, and{" "}
+            <span className="text-foreground font-semibold">Purnima Ariyarathna</span>, three young
             weightlifters turned entrepreneurs.
           </p>
         </div>
@@ -124,7 +140,7 @@ export default function AboutPage() {
             <div>
               <span className="chip mb-4">THE FOUNDERS</span>
               <h2 className="font-display text-5xl md:text-6xl leading-[0.9]">
-                TWO LIFTERS.<br />
+                THREE LIFTERS.<br />
                 <span className="text-accent">ONE KITCHEN.</span>
               </h2>
             </div>
@@ -132,7 +148,7 @@ export default function AboutPage() {
               Est. 2026 · Sri Lanka
             </span>
           </div>
-          <div className="grid sm:grid-cols-2 gap-12 md:gap-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
             <Founder
               index="01"
               src="/founder-akila.jpg"
@@ -146,6 +162,13 @@ export default function AboutPage() {
               name="Kasun Sanjana"
               role="Co-founder"
               bio="Physical Science graduate from the University of Ruhuna who went from first lift to the Olympic weightlifting platform in under two years. Brings that same execution speed to GymDine, a kitchen that treats fuel as seriously as the people earning it."
+            />
+            <Founder
+              index="03"
+              src="/founder-purnima.jpg"
+              name="Purnima Ariyarathna"
+              role="Co-founder"
+              bio="BBA (Hons) in International Business from the University of Colombo and a weightlifter. Brings the commercial backbone to GymDine, making sure a kitchen built for lifters runs like the business it is."
             />
           </div>
         </div>
