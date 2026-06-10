@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
+import TopProgressBar from "@/components/TopProgressBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,7 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${display.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <TopProgressBar />
+        {children}
+      </body>
     </html>
   );
 }
