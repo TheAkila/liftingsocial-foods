@@ -7,9 +7,77 @@ export const metadata: Metadata = {
   description: "GymDine — built by lifters, for lifters.",
 };
 
+const SITE = (process.env.NEXT_PUBLIC_APP_URL ?? "https://gymdine.theliftingsocial.com").replace(
+  /\/$/,
+  ""
+);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      name: "GymDine",
+      url: SITE,
+      logo: `${SITE}/gymdine-logo.png`,
+      description:
+        "Chef-crafted, macro-tracked protein meals built for lifters. Delivered across Sri Lanka.",
+      foundingDate: "2026",
+      founder: [
+        { "@id": `${SITE}/about#akila-nishan` },
+        { "@id": `${SITE}/about#kasun-sanjana` },
+      ],
+      areaServed: { "@type": "Country", name: "Sri Lanka" },
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE}/about#akila-nishan`,
+      name: "Akila Nishan",
+      givenName: "Akila",
+      familyName: "Nishan",
+      jobTitle: "Co-founder",
+      worksFor: { "@id": `${SITE}/#organization` },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "University of Colombo" },
+      nationality: { "@type": "Country", name: "Sri Lanka" },
+      image: `${SITE}/founder-akila.jpg`,
+      description:
+        "Computer Science graduate from the University of Colombo with eight years on the Olympic weightlifting platform. Co-founded GymDine on a simple thesis: Sri Lanka's serious lifters deserve food engineered to the standard they train at.",
+      sameAs: [
+        "https://www.linkedin.com/in/akila-nishan-4b0289214/",
+        "https://www.facebook.com/akilanishan.jayakody",
+        "https://www.instagram.com/theakila__/",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE}/about#kasun-sanjana`,
+      name: "Kasun Sanjana",
+      givenName: "Kasun",
+      familyName: "Sanjana",
+      jobTitle: "Co-founder",
+      worksFor: { "@id": `${SITE}/#organization` },
+      alumniOf: { "@type": "CollegeOrUniversity", name: "University of Ruhuna" },
+      nationality: { "@type": "Country", name: "Sri Lanka" },
+      image: `${SITE}/founder-kasun.jpg`,
+      description:
+        "Physical Science graduate from the University of Ruhuna who went from first lift to the Olympic weightlifting platform in under two years. Brings that same execution speed to GymDine, a kitchen that treats fuel as seriously as the people earning it.",
+      sameAs: [
+        "https://www.linkedin.com/in/kasun-sanjana-ba8399320/",
+        "https://www.facebook.com/kasun.sanjana.31",
+        "https://www.instagram.com/kasun_sanjana2/",
+      ],
+    },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="border-b border-border">
         <div className="container-x py-20 md:py-28 max-w-4xl">
           <span className="chip mb-4">OUR STORY</span>
