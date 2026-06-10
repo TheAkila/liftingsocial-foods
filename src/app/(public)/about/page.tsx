@@ -209,7 +209,7 @@ function Founder({
 }) {
   return (
     <div className="group">
-      <div className="relative aspect-4/5 w-full max-w-65 bg-surface-2 overflow-hidden rounded-md">
+      <div className="relative aspect-4/5 w-full max-w-72 bg-surface-2 overflow-hidden rounded-md">
         <Image
           src={src}
           alt={name}
